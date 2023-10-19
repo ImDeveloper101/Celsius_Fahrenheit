@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+    <form>
+        <label for="celsius">Enter temperature in Celsius:</label>
+        <input type="text" id="celsius" name="celsius" placeholder="Enter Celsius temperature" required>
+        <input type="button" value="Convert to Fahrenheit" onclick="convertToCelsius()">
+        <p id="fahrenheitResult"></p>
+    </form>
+
+    <form>
+        <label for="fahrenheit">Enter temperature in Fahrenheit:</label>
+        <input type="text" id="fahrenheit" name="fahrenheit" placeholder="Enter Fahrenheit temperature" required>
+        <input type="button" value="Convert to Celsius" onclick="convertToFahrenheit()">
+        <p id="celsiusResult"></p>
+    </form>
+
+    <script>
+        function convertToCelsius() {
+            var celsiusInput = parseFloat(document.getElementById('celsius').value);
+            if (isNaN(celsiusInput)) {
+                document.getElementById('fahrenheitResult').innerHTML = "Please enter a valid number.";
+                return;
+            }
+
+            var fahrenheit = (celsiusInput * 9/5) + 32;
+            document.getElementById('fahrenheitResult').innerHTML = celsiusInput + " degrees Celsius is equal to " + fahrenheit.toFixed(2) + " degrees Fahrenheit.";
+        }
+
+        function convertToFahrenheit() {
+            var fahrenheitInput = parseFloat(document.getElementById('fahrenheit').value);
+            if (isNaN(fahrenheitInput)) {
+                document.getElementById('celsiusResult').innerHTML = "Please enter a valid number.";
+                return;
+            }
+
+            var celsius = (fahrenheitInput - 32) * 5/9;
+            document.getElementById('celsiusResult').innerHTML = fahrenheitInput + " degrees Fahrenheit is equal to " + celsius.toFixed(2) + " degrees Celsius.";
+        }
+    </script>
+</body>
+</html>
+Convert temperatures from Celsius to Fahrenheit and from Fahrenheit to Celsius. 
+
+
+
+
+
